@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="GarageBand.Controls.SnareButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GarageBand"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid PreviewMouseLeftButtonDown="Snare_PreviewMouseLeftButtonDown" AllowDrop="False">
+        <Grid.ContextMenu>
+            <ContextMenu>
+                <MenuItem Header="Sample 1" PreviewMouseDown="MenuItem_PreviewMouseDown" Tag="1"/>
+                <MenuItem Header="Sample 2" PreviewMouseDown="MenuItem_PreviewMouseDown" Tag="2"/>
+                <MenuItem Header="Sample 3" PreviewMouseDown="MenuItem_PreviewMouseDown" Tag="3"/>
+                <MenuItem Header="Sample 4" PreviewMouseDown="MenuItem_PreviewMouseDown" Tag="4"/>
+                <MenuItem Header="Sample 5" PreviewMouseDown="MenuItem_PreviewMouseDown" Tag="5"/>
+            </ContextMenu>
+        </Grid.ContextMenu>
+        <Ellipse x:Name="Snare" 
+         Height="60" Width="60"
+         Stroke="Blue" />
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Snare" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBlock x:Name="Sample" Text="Sample 1"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

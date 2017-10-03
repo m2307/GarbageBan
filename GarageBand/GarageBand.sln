@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.8
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GarageBand", "GarageBand\GarageBand.csproj", "{35D1943D-48E7-4FDE-A205-695A9B36FE61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundLib", "SoundLib\SoundLib.csproj", "{7EFE9757-9742-4EB6-A37C-1CA8DA180FF1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{35D1943D-48E7-4FDE-A205-695A9B36FE61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35D1943D-48E7-4FDE-A205-695A9B36FE61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35D1943D-48E7-4FDE-A205-695A9B36FE61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35D1943D-48E7-4FDE-A205-695A9B36FE61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EFE9757-9742-4EB6-A37C-1CA8DA180FF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EFE9757-9742-4EB6-A37C-1CA8DA180FF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EFE9757-9742-4EB6-A37C-1CA8DA180FF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EFE9757-9742-4EB6-A37C-1CA8DA180FF1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {50541547-2B09-4A91-A169-4364801C1FBC}
+	EndGlobalSection
+EndGlobal

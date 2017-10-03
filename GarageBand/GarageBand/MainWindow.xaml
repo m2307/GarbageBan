@@ -1,0 +1,79 @@
+﻿<Window x:Class="GarageBand.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:ignore="http://www.galasoft.ch/ignore"
+        xmlns:controls="clr-namespace:GarageBand.Controls"
+        mc:Ignorable="d ignore"
+        Height="400"
+        Width="900"
+        Title="Opleiding GarageBand"
+        DataContext="{Binding MainViewModel, Source={StaticResource Locator}}" MinWidth="300" MinHeight="600">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Skins/MainSkin.xaml" />
+                <ResourceDictionary Source="Assets/Theme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid Margin="20" AllowDrop="True" x:Name="LayoutRoot">
+        <Grid.Resources >
+            <Style TargetType="Border" >
+                <Setter Property="Padding" Value="5,5,5,5" />
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition MinHeight="100" Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition MinHeight="100" Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="150"/>
+        </Grid.ColumnDefinitions>
+        <Border  BorderBrush="#56a43f" BorderThickness="2" Margin="0,5" CornerRadius="8,8,8,8" MinWidth="200">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" MinWidth="100">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="5" Text="{Binding BPMText}"/>
+                    <Slider Margin="5" MinWidth="100" x:Name="BPMSlider" Minimum="60" Maximum="200" Value="{Binding SliderValue}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Song name:" Margin="5"/>
+                    <TextBox Text="{Binding Player.Name}" Margin="5"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" MinHeight="20">
+                    <Button Content="Save" Width="50" HorizontalAlignment="Left" VerticalAlignment="Center" Command="{Binding SaveCommand}" Margin="5"/>
+                    <Button Content="Clear" Width="50" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <Border VerticalAlignment="Top" Grid.Row="1" BorderBrush="#56a43f" BorderThickness="2" MinWidth="150" MaxHeight="180" CornerRadius="8,8,8,8">
+            <StackPanel Orientation="Vertical" Margin="5">
+                <TextBlock Text="Saved songs" HorizontalAlignment="Center"/>
+                <ListBox MaxHeight="150" VerticalAlignment="Top" x:Name="SongListBox" ItemsSource="{Binding SongList}" DisplayMemberPath="Name" SelectionChanged="SongListBox_SelectionChanged" >
+                    <!--<i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding SelectedItemChangedCommand}"  CommandParameter="{Binding ElementName=SongListBox, Path=SelectedItem}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>-->
+                </ListBox>
+            </StackPanel>
+            <!--<Border.Style>
+                <Style BasedOn="{StaticResource SidePanelBorder}"/>
+            </Border.Style>-->
+        </Border>
+        <Grid Margin="20" Grid.Column="1" MinHeight="300" Grid.RowSpan="2" x:Name="beatGrid"  Drop="LayoutRoot_Drop" DragEnter="LayoutRoot_DragEnter" />
+        <StackPanel Orientation="Vertical" Grid.Column="2" Grid.RowSpan="2">
+            <controls:HiHatButton Margin="5"/>
+            <controls:BassKickButton Margin="5"/>
+            <controls:SnareButton Margin="5"/>
+        </StackPanel>
+    </Grid>
+
+</Window>
