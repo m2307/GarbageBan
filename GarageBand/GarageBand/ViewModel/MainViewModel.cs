@@ -23,6 +23,7 @@ namespace GarageBand.ViewModel
     /// See http://www.mvvmlight.net
     /// </para>
     /// </summary>
+    /// ///
     public class MainViewModel : ViewModelBase
     {
         public ICommand SaveCommand { get; set; }
@@ -34,7 +35,7 @@ namespace GarageBand.ViewModel
         {
             get
             {
-                return _songList.OrderBy(x=>x.Name);
+                return _songList;
             }
             set
             {

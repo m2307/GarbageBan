@@ -44,3 +44,26 @@ C:\Users\matthiasc\Desktop\GarageBand\SoundLib\bin\Debug\Resources\Snare 4.wav
 C:\Users\matthiasc\Desktop\GarageBand\SoundLib\bin\Debug\Resources\Snare 5.wav
 C:\Users\matthiasc\Desktop\GarageBand\SoundLib\bin\Debug\SoundPlayer.cs
 C:\Users\matthiasc\Desktop\GarageBand\SoundLib\obj\Debug\SoundLib.csprojResolveAssemblyReference.cache
+C:\Users\matthiasc\Desktop\Git\GarbageBand\GarageBand\SoundLib\bin\Debug\Resources\HiHat 1.wav
+C:\Users\matthiasc\Desktop\Git\GarbageBand\GarageBand\SoundLib\bin\Debug\Resources\HiHat 2.wav
+C:\Users\matthiasc\Desktop\Git\GarbageBand\GarageBand\SoundLib\bin\Debug\Resources\HiHat 3.wav
+C:\Users\matthiasc\Desktop\Git\GarbageBand\GarageBand\SoundLib\bin\Debug\Resources\HiHat 4.wav
+C:\Users\matthiasc\Desktop\Git\GarbageBand\GarageBand\SoundLib\bin\Debug\Resources\HiHat 5.wav
+C:\Users\matthiasc\Desktop\Git\GarbageBand\GarageBand\SoundLib\bin\Debug\Resources\Kick 1.wav
+C:\Users\matthiasc\Desktop\Git\GarbageBand\GarageBand\SoundLib\bin\Debug\Resources\Kick 2.wav
+C:\Users\matthiasc\Desktop\Git\GarbageBand\GarageBand\SoundLib\bin\Debug\Resources\Kick 3.wav
+C:\Users\matthiasc\Desktop\Git\GarbageBand\GarageBand\SoundLib\bin\Debug\Resources\Kick 4.wav
+C:\Users\matthiasc\Desktop\Git\GarbageBand\GarageBand\SoundLib\bin\Debug\Resources\Kick 5.wav
+C:\Users\matthiasc\Desktop\Git\GarbageBand\GarageBand\SoundLib\bin\Debug\Resources\Snare 1.wav
+C:\Users\matthiasc\Desktop\Git\GarbageBand\GarageBand\SoundLib\bin\Debug\Resources\Snare 2.wav
+C:\Users\matthiasc\Desktop\Git\GarbageBand\GarageBand\SoundLib\bin\Debug\Resources\Snare 3.wav
+C:\Users\matthiasc\Desktop\Git\GarbageBand\GarageBand\SoundLib\bin\Debug\Resources\Snare 4.wav
+C:\Users\matthiasc\Desktop\Git\GarbageBand\GarageBand\SoundLib\bin\Debug\Resources\Snare 5.wav
+C:\Users\matthiasc\Desktop\Git\GarbageBand\GarageBand\SoundLib\bin\Debug\SoundPlayer.cs
+C:\Users\matthiasc\Desktop\Git\GarbageBand\GarageBand\SoundLib\bin\Debug\SoundLib.dll.config
+C:\Users\matthiasc\Desktop\Git\GarbageBand\GarageBand\SoundLib\bin\Debug\SoundLib.dll
+C:\Users\matthiasc\Desktop\Git\GarbageBand\GarageBand\SoundLib\bin\Debug\SoundLib.pdb
+C:\Users\matthiasc\Desktop\Git\GarbageBand\GarageBand\SoundLib\obj\Debug\SoundLib.csprojResolveAssemblyReference.cache
+C:\Users\matthiasc\Desktop\Git\GarbageBand\GarageBand\SoundLib\obj\Debug\SoundLib.csproj.CoreCompileInputs.cache
+C:\Users\matthiasc\Desktop\Git\GarbageBand\GarageBand\SoundLib\obj\Debug\SoundLib.dll
+C:\Users\matthiasc\Desktop\Git\GarbageBand\GarageBand\SoundLib\obj\Debug\SoundLib.pdb

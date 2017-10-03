@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft visual studio\2017\professional\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
 <FxCopReport Version="15.0">
  <Targets>
-  <Target Name="C:\Users\matthiasc\Desktop\GarageBand\GarageBand\bin\Debug\GarageBand.exe">
+  <Target Name="C:\Users\matthiasc\Desktop\Git\GarbageBand\GarageBand\GarageBand\bin\Debug\GarageBand.exe">
    <Modules>
     <Module Name="garageband.exe">
      <Namespaces>
@@ -10,7 +10,7 @@
        <Types>
         <Type Name="MainViewModel" Kind="Class" Accessibility="Public" ExternallyVisible="True">
          <Messages>
-          <Message TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001" Status="Active" Created="2017-10-03 06:38:16Z" FixCategory="DependsOnFix">
+          <Message TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001" Status="Active" Created="2017-10-03 14:16:57Z" FixCategory="DependsOnFix">
            <Issue Name="DependsOnFix" Certainty="95" Level="CriticalError">Implement IDisposable on 'MainViewModel' because it creates members of the following IDisposable types: 'SoundPlayer', 'Timer'. If 'MainViewModel' has previously shipped, adding new members that implement IDisposable to this type is considered a breaking change to existing consumers.</Issue>
           </Message>
          </Messages>
