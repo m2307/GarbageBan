@@ -84,9 +84,9 @@
         </Border>
         <Grid Margin="20" Grid.Column="1" MinHeight="300" Grid.RowSpan="2" x:Name="beatGrid"  Drop="LayoutRoot_Drop" DragEnter="LayoutRoot_DragEnter" />
         <StackPanel Orientation="Vertical" Grid.Column="2" Grid.RowSpan="2">
-            <controls:HiHatButton Margin="5"/>
-            <controls:BassKickButton Margin="5"/>
-            <controls:SnareButton Margin="5"/>
+            <controls:HiHatButton/>
+            <controls:BassKickButton/>
+            <controls:SnareButton/>
         </StackPanel>
     </Grid>
 

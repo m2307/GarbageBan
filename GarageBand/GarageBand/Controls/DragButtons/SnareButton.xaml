@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="GarageBand.Controls.HiHatButton"
+﻿<UserControl x:Class="GarageBand.Controls.SnareButton"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:GarageBand"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid PreviewMouseLeftButtonDown="HiHat_PreviewMouseLeftButtonDown" AllowDrop="False">
+    <Grid PreviewMouseLeftButtonDown="Snare_PreviewMouseLeftButtonDown" AllowDrop="False" Margin="5">
         <Grid.ContextMenu>
             <ContextMenu>
                 <MenuItem Header="Sample 1" PreviewMouseDown="MenuItem_PreviewMouseDown" Tag="1"/>
@@ -16,12 +16,14 @@
                 <MenuItem Header="Sample 5" PreviewMouseDown="MenuItem_PreviewMouseDown" Tag="5"/>
             </ContextMenu>
         </Grid.ContextMenu>
-        <Ellipse x:Name="BassKick" 
-         Height="60" Width="60"
-         Stroke="Green" />
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"> 
-            <TextBlock Text="HiHat" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <TextBlock x:Name="Sample" Text="Sample 1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        </StackPanel>
+        <Border BorderBrush="#56a43f" BorderThickness="1" Padding="0">
+            <Grid Background="LightGray" Margin="0">
+                <Image Width="100" Height="100" VerticalAlignment="Center" HorizontalAlignment="Center" Source="../../Assets/snare.png"/>
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                    <TextBlock  Text="Snare" HorizontalAlignment="Center" Padding="2" Foreground="#56a43f" FontWeight="Bold"/>
+                    <TextBlock  x:Name="Sample" Text="Sample 1" VerticalAlignment="Bottom" HorizontalAlignment="Center" Padding="2" Foreground="#56a43f" FontWeight="Bold"/>
+                </StackPanel>
+            </Grid>
+        </Border>
     </Grid>
 </UserControl>

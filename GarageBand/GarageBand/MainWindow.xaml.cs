@@ -85,14 +85,9 @@ namespace GarageBand
                     Border b = new Border();
 
                     TextBlock t2 = new TextBlock();
-                    if (j % 2 == 0)
-                    {
-                        t2.Background = new SolidColorBrush(Colors.Gray);
-                    }
-                    else
-                    {
-                        t2.Background = new SolidColorBrush(Colors.DarkGray);
-                    }
+
+                    Style style = this.FindResource("BeatGridStyle1") as Style;
+                    t2.Style = style;
 
                     b.Child = t2;
                     t2.Text = "       ";
@@ -123,30 +118,32 @@ namespace GarageBand
         private void CreateDeleteButton(PlayInstrument playInstrument)
         {
             //Add delete button
-            Button b = new Button();
-            b.Command = (DataContext as MainViewModel).DeleteCommand;
-            b.CommandParameter = playInstrument;
-            b.Content = "Delete\nSample " + playInstrument.SoundType;
-            b.VerticalContentAlignment = VerticalAlignment.Center;
-            b.HorizontalContentAlignment = HorizontalAlignment.Center;
-            Grid.SetColumn(b, playInstrument.Position - 1);
-            b.Click += Button_Click;
+
+           // Button b = new Button();
+           // b.Command = (DataContext as MainViewModel).DeleteCommand;
+           // b.CommandParameter = playInstrument;
+           // b.Content = "Delete\nSample " + playInstrument.SoundType;
+           // b.VerticalContentAlignment = VerticalAlignment.Center;
+           // b.HorizontalContentAlignment = HorizontalAlignment.Center;
+           // Grid.SetColumn(b, playInstrument.Position - 1);
+           // b.Click += Button_Click;
 
             switch (playInstrument.Type)
             {
                 case InstrumentType.Snaar:
-                    Grid.SetRow(b, 3); //fix
+                    //Grid.SetRow(b, 3); 
                     break;
                 case InstrumentType.Hihat:
-                    Grid.SetRow(b, 1);
+                    //Grid.SetRow(b, 1);
                     break;
                 case InstrumentType.Basskick:
-                    Grid.SetRow(b, 2);
+                    BassKickDeleteButton bassKickDeleteButton = new BassKickDeleteButton(playInstrument, beatGrid, DataContext as MainViewModel);
+                    //Grid.SetRow(b, 2);
                     break;
                 default:
                     break;
             }
-            beatGrid.Children.Add(b);
+            //beatGrid.Children.Add(b);
         }
 
         private void LayoutRoot_DragEnter(object sender, DragEventArgs e)

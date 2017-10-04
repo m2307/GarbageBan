@@ -75,15 +75,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Controls\HiHatButton.xaml.cs">
+    <Compile Include="Controls\DeleteButtons\BassKickDeleteButton.xaml.cs">
+      <DependentUpon>BassKickDeleteButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DeleteButtons\HiHatDeleteButton.xaml.cs">
+      <DependentUpon>HiHatDeleteButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DeleteButtons\SnareDeleteButton.xaml.cs">
+      <DependentUpon>SnareDeleteButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DragButtons\HiHatButton.xaml.cs">
       <DependentUpon>HiHatButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\BassKickButton.xaml.cs">
+    <Compile Include="Controls\DragButtons\BassKickButton.xaml.cs">
       <DependentUpon>BassKickButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Player.cs" />
     <Compile Include="Model\PlayInstrument.cs" />
-    <Compile Include="Controls\SnareButton.xaml.cs">
+    <Compile Include="Controls\DragButtons\SnareButton.xaml.cs">
       <DependentUpon>SnareButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\MainViewModel.cs" />
@@ -92,11 +101,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Controls\HiHatButton.xaml">
+    <Page Include="Controls\DeleteButtons\BassKickDeleteButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Controls\BassKickButton.xaml">
+    <Page Include="Controls\DeleteButtons\HiHatDeleteButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\DeleteButtons\SnareDeleteButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\DragButtons\HiHatButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\DragButtons\BassKickButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -116,7 +137,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Controls\SnareButton.xaml">
+    <Page Include="Controls\DragButtons\SnareButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -164,6 +185,11 @@
       <Project>{7EFE9757-9742-4EB6-A37C-1CA8DA180FF1}</Project>
       <Name>SoundLib</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\hihat.png" />
+    <Resource Include="Assets\kick.png" />
+    <Resource Include="Assets\snare.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
