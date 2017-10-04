@@ -119,25 +119,28 @@ namespace GarageBand
         {
             //Add delete button
 
-           // Button b = new Button();
-           // b.Command = (DataContext as MainViewModel).DeleteCommand;
-           // b.CommandParameter = playInstrument;
-           // b.Content = "Delete\nSample " + playInstrument.SoundType;
-           // b.VerticalContentAlignment = VerticalAlignment.Center;
-           // b.HorizontalContentAlignment = HorizontalAlignment.Center;
-           // Grid.SetColumn(b, playInstrument.Position - 1);
-           // b.Click += Button_Click;
+            // Button b = new Button();
+            // b.Command = (DataContext as MainViewModel).DeleteCommand;
+            // b.CommandParameter = playInstrument;
+            // b.Content = "Delete\nSample " + playInstrument.SoundType;
+            // b.VerticalContentAlignment = VerticalAlignment.Center;
+            // b.HorizontalContentAlignment = HorizontalAlignment.Center;
+            // Grid.SetColumn(b, playInstrument.Position - 1);
+            // b.Click += Button_Click;
 
             switch (playInstrument.Type)
             {
                 case InstrumentType.Snaar:
+                    new SnareDeleteButton(playInstrument, beatGrid, DataContext as MainViewModel, 3);
+
                     //Grid.SetRow(b, 3); 
                     break;
                 case InstrumentType.Hihat:
+                    new HiHatDeleteButton(playInstrument, beatGrid, DataContext as MainViewModel, 1);
                     //Grid.SetRow(b, 1);
                     break;
                 case InstrumentType.Basskick:
-                    BassKickDeleteButton bassKickDeleteButton = new BassKickDeleteButton(playInstrument, beatGrid, DataContext as MainViewModel);
+                    new BassKickDeleteButton(playInstrument, beatGrid, DataContext as MainViewModel, 2);
                     //Grid.SetRow(b, 2);
                     break;
                 default:

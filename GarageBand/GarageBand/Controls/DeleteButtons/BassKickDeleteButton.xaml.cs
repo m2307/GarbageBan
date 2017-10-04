@@ -23,7 +23,7 @@ namespace GarageBand.Controls
     /// </summary>
     public partial class BassKickDeleteButton : UserControl
     {
-        public BassKickDeleteButton(PlayInstrument playInstrument, Grid parentGrid, MainViewModel context)
+        public BassKickDeleteButton(PlayInstrument playInstrument, Grid parentGrid, MainViewModel context, int rowPosition)
         {
             InitializeComponent();
 
@@ -32,7 +32,7 @@ namespace GarageBand.Controls
             Sample.Text = "Sample " + playInstrument.SoundType;
             Grid.SetColumn(this, playInstrument.Position - 1);
             this.mainButton.Click += Button_Click;
-            Grid.SetRow(this, 2);
+            Grid.SetRow(this, rowPosition);
 
             parentGrid.Children.Add(this);
         }

@@ -1,4 +1,5 @@
 ﻿using GarageBand.Model;
+using GarageBand.ViewModel;
 using SoundLib;
 using System;
 using System.Collections.Generic;
@@ -22,9 +23,23 @@ namespace GarageBand.Controls
     /// </summary>
     public partial class HiHatDeleteButton : UserControl
     {
-        public HiHatDeleteButton()
+        public HiHatDeleteButton(PlayInstrument playInstrument, Grid parentGrid, MainViewModel context, int rowPosition)
         {
             InitializeComponent();
+
+            this.mainButton.Command = context.DeleteCommand;
+            this.mainButton.CommandParameter = playInstrument;
+            Sample.Text = "Sample " + playInstrument.SoundType;
+            Grid.SetColumn(this, playInstrument.Position - 1);
+            this.mainButton.Click += Button_Click;
+            Grid.SetRow(this, rowPosition);
+
+            parentGrid.Children.Add(this);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            (this.Parent as Grid).Children.Remove(this);
         }
     }
 }

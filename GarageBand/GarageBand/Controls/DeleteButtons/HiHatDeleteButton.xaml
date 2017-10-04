@@ -6,5 +6,22 @@
              xmlns:local="clr-namespace:GarageBand"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-
+    <Button x:Name="mainButton" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Grid AllowDrop="False" Margin="5">
+            <Grid.Resources>
+                <ResourceDictionary>
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceDictionary Source="../../Skins/MainSkin.xaml" />
+                        <ResourceDictionary Source="../../Assets/Theme.xaml"/>
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>
+            </Grid.Resources>
+            <Grid Background="LightGray" Margin="0">
+                <Image Width="80" Height="80" VerticalAlignment="Center" HorizontalAlignment="Center" Source="../../Assets/hihat.png"/>
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                    <TextBlock  x:Name="Sample" VerticalAlignment="Bottom" HorizontalAlignment="Center" Padding="2" Foreground="#56a43f" FontWeight="Bold"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Button>
 </UserControl>
