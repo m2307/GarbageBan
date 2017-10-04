@@ -157,6 +157,7 @@ namespace SoundLib
         public void Dispose()
         {
             isDisposed = true;
+            Volume = 0f;
 
             eHihat.Set();
             eKick.Set();

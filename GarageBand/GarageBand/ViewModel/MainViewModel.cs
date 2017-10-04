@@ -6,12 +6,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
+using System.Windows;
 using System.Windows.Input;
 using System.Xml.Linq;
 
@@ -54,6 +56,8 @@ namespace GarageBand.ViewModel
         /// </summary>
         public MainViewModel()
         {
+            Application.Current.MainWindow.Closing += new CancelEventHandler(OnClose);
+
             SaveCommand = new RelayCommand(Save);
             DeleteCommand = new RelayCommand<object>(Delete);
             SelectedItemChangedCommand = new RelayCommand<object>(Load);
@@ -201,6 +205,32 @@ namespace GarageBand.ViewModel
             }
         }
 
+        private string _volumeText = "Volume: 100";
+
+        public string VolumeText
+        {
+            get { return _volumeText; }
+            set
+            {
+                _volumeText = value;
+                RaisePropertyChanged("VolumeText");
+            }
+        }
+
+        private int _volumeSlider = 100;
+        
+        public int VolumeSlider
+        {
+            get { return _volumeSlider; }
+            set
+            {
+                RaisePropertyChanged("VolumeSlider");
+                _volumeSlider = value;
+                VolumeText = "Volume: " + value;
+                soundPlayer.Volume = value / 100.0f;
+            }
+        }
+
         private Player _player = new Player()
         {
             Name = "Default",
@@ -308,5 +338,10 @@ namespace GarageBand.ViewModel
 
         ////    base.Cleanup();
         ////}
+
+        private void OnClose(object sender, CancelEventArgs e)
+        {
+            soundPlayer.Dispose();
+        }
     }
 }
