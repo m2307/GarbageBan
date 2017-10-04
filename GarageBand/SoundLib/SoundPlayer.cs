@@ -30,6 +30,8 @@ namespace SoundLib
         private static volatile string SubTypeKick = "1";
         private static volatile string SubTypeSnare = "1";
 
+        private static volatile float volume = 1.0f;
+
         public SoundPlayer()
         {
             tHihat = new Task(playHiHat);
@@ -83,6 +85,7 @@ namespace SoundLib
                 }
                 if (HiHats.TryGetValue(SubTypeHiHat, out MediaPlayer m))
                 {
+                    checkVolume(m);
                     m.Play();
                     m.Position = new TimeSpan(0);
                 }
@@ -112,6 +115,7 @@ namespace SoundLib
                 }
                 if (snares.TryGetValue(SubTypeSnare, out MediaPlayer m))
                 {
+                    checkVolume(m);
                     m.Play();
                     m.Position = new TimeSpan(0);
                 }
@@ -140,6 +144,7 @@ namespace SoundLib
                 }
                 if (kicks.TryGetValue(SubTypeSnare, out MediaPlayer m))
                 {
+                    checkVolume(m);
                     m.Play();
                     m.Position = new TimeSpan(0);
                 }
@@ -158,6 +163,34 @@ namespace SoundLib
             tSnare.Wait();
             tKick.Wait();
             tHihat.Wait();
+        }
+
+        public float Volume
+        {
+            get { return volume; }
+            set
+            {
+                if (value > 1.0f)
+                {
+                    volume = 1.0f;
+                }
+                else if (value < 0f)
+                {
+                    volume = 0f;
+                }
+                else
+                {
+                    volume = value;
+                }
+            }
+        }
+
+        private void checkVolume(MediaPlayer m)
+        {
+            if (m.Volume != Volume)
+            {
+                m.Volume = volume;
+            }
         }
     }
 }
