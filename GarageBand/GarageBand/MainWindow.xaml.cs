@@ -47,25 +47,31 @@ namespace GarageBand
 
             Grid.SetRowSpan(beatGrid, 2);
             Grid.SetColumn(beatGrid, 1);
-            beatGrid.Margin = new Thickness(20);
-            beatGrid.MinHeight = 300;
+
+            RowDefinition r2 = new RowDefinition();
+            r2.MinHeight = 40;
+            beatGrid.RowDefinitions.Add(r2);
+
+
+            for (int j = 0; j < Enum.GetNames(typeof(InstrumentType)).Length; j++)
+            {
+                RowDefinition r = new RowDefinition();
+                r.Height = new GridLength(60, GridUnitType.Star);
+                beatGrid.RowDefinitions.Add(r);
+            }
 
             const int COLUMNWIDTH = 50;
             for (int i = 0; i < (DataContext as MainViewModel).Player.MaxPosition; i++)
             {
-                //Columndefinitions
                 ColumnDefinition c = new ColumnDefinition();
                 c.Width = new GridLength(50, GridUnitType.Star);
                 c.MinWidth = COLUMNWIDTH;
                 beatGrid.ColumnDefinitions.Add(c);
 
-                RowDefinition r2 = new RowDefinition();
-                r2.MinHeight = 40;
-                beatGrid.RowDefinitions.Add(r2);
-
                 //Labels Beat
                 TextBlock t = new TextBlock();
-                t.Width = 30;
+                //t.Width = 30;
+                t.MinWidth = 30;
                 t.Text = (i + 1).ToString();
                 t.VerticalAlignment = VerticalAlignment.Center;
                 t.HorizontalAlignment = HorizontalAlignment.Center;
@@ -77,11 +83,6 @@ namespace GarageBand
 
                 for (int j = 0; j < Enum.GetNames(typeof(InstrumentType)).Length; j++)
                 {
-                    RowDefinition r = new RowDefinition();
-                    r.Height = new GridLength(60, GridUnitType.Star);
-                    r.MinHeight = 60;
-                    beatGrid.RowDefinitions.Add(r);
-
                     Border b = new Border();
 
                     TextBlock t2 = new TextBlock();
