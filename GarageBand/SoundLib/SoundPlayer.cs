@@ -30,7 +30,7 @@ namespace SoundLib
         private static volatile string SubTypeKick = "1";
         private static volatile string SubTypeSnare = "1";
 
-        private static volatile float volume = 1.0f;
+        private static volatile float volume = 0.5f;
 
         public SoundPlayer()
         {

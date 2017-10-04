@@ -75,14 +75,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Controls\DeleteButtons\BassKickDeleteButton.xaml.cs">
-      <DependentUpon>BassKickDeleteButton.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\DeleteButtons\HiHatDeleteButton.xaml.cs">
-      <DependentUpon>HiHatDeleteButton.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\DeleteButtons\SnareDeleteButton.xaml.cs">
-      <DependentUpon>SnareDeleteButton.xaml</DependentUpon>
+    <Compile Include="Controls\DeleteButtons\DeleteButton.xaml.cs">
+      <DependentUpon>DeleteButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\DragButtons\HiHatButton.xaml.cs">
       <DependentUpon>HiHatButton.xaml</DependentUpon>
@@ -101,15 +95,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Controls\DeleteButtons\BassKickDeleteButton.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Controls\DeleteButtons\HiHatDeleteButton.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Controls\DeleteButtons\SnareDeleteButton.xaml">
+    <Page Include="Controls\DeleteButtons\DeleteButton.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

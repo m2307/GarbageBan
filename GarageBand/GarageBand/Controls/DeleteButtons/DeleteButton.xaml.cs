@@ -21,11 +21,29 @@ namespace GarageBand.Controls
     /// <summary>
     /// Interaction logic for SnareButton.xaml
     /// </summary>
-    public partial class BassKickDeleteButton : UserControl
+    public partial class DeleteButton : UserControl
     {
-        public BassKickDeleteButton(PlayInstrument playInstrument, Grid parentGrid, MainViewModel context, int rowPosition)
+        public DeleteButton(PlayInstrument playInstrument, Grid parentGrid, MainViewModel context, int rowPosition)
         {
             InitializeComponent();
+            Uri uriSource = null; 
+
+            switch (playInstrument.Type)
+            {
+                case InstrumentType.Snaar:
+                    uriSource = new Uri(@"../../Assets/snare.png", UriKind.Relative);
+                    break;
+                case InstrumentType.Hihat:
+                    uriSource = new Uri(@"../../Assets/hihat.png", UriKind.Relative);
+                    break;
+                case InstrumentType.Basskick:
+                    uriSource = new Uri(@"../../Assets/kick.png", UriKind.Relative);
+                    break;
+                default:
+                    break;
+            }
+
+            DeleteIcon.Source = new BitmapImage(uriSource);
 
             this.mainButton.Command = context.DeleteCommand;
             this.mainButton.CommandParameter = playInstrument;

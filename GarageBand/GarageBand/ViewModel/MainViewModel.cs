@@ -205,7 +205,7 @@ namespace GarageBand.ViewModel
             }
         }
 
-        private string _volumeText = "Volume: 100";
+        private string _volumeText = "Volume: 50";
 
         public string VolumeText
         {
@@ -217,7 +217,7 @@ namespace GarageBand.ViewModel
             }
         }
 
-        private int _volumeSlider = 100;
+        private int _volumeSlider = 50;
         
         public int VolumeSlider
         {

@@ -118,36 +118,20 @@ namespace GarageBand
 
         private void CreateDeleteButton(PlayInstrument playInstrument)
         {
-            //Add delete button
-
-            // Button b = new Button();
-            // b.Command = (DataContext as MainViewModel).DeleteCommand;
-            // b.CommandParameter = playInstrument;
-            // b.Content = "Delete\nSample " + playInstrument.SoundType;
-            // b.VerticalContentAlignment = VerticalAlignment.Center;
-            // b.HorizontalContentAlignment = HorizontalAlignment.Center;
-            // Grid.SetColumn(b, playInstrument.Position - 1);
-            // b.Click += Button_Click;
-
             switch (playInstrument.Type)
             {
                 case InstrumentType.Snaar:
-                    new SnareDeleteButton(playInstrument, beatGrid, DataContext as MainViewModel, 3);
-
-                    //Grid.SetRow(b, 3); 
+                    new DeleteButton(playInstrument, beatGrid, DataContext as MainViewModel, 3);
                     break;
                 case InstrumentType.Hihat:
-                    new HiHatDeleteButton(playInstrument, beatGrid, DataContext as MainViewModel, 1);
-                    //Grid.SetRow(b, 1);
+                    new DeleteButton(playInstrument, beatGrid, DataContext as MainViewModel, 1);
                     break;
                 case InstrumentType.Basskick:
-                    new BassKickDeleteButton(playInstrument, beatGrid, DataContext as MainViewModel, 2);
-                    //Grid.SetRow(b, 2);
+                    new DeleteButton(playInstrument, beatGrid, DataContext as MainViewModel, 2);
                     break;
                 default:
                     break;
             }
-            //beatGrid.Children.Add(b);
         }
 
         private void LayoutRoot_DragEnter(object sender, DragEventArgs e)
@@ -157,11 +141,6 @@ namespace GarageBand
             {
                 e.Effects = DragDropEffects.None;
             }
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            beatGrid.Children.Remove(e.Source as Button);
         }
 
         private void SongListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

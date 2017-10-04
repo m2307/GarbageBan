@@ -68,14 +68,14 @@
         <Border VerticalAlignment="Top" Grid.Row="1" BorderBrush="#56a43f" BorderThickness="2" MinWidth="150" MaxHeight="180" CornerRadius="8,8,8,8">
             <StackPanel Orientation="Vertical" Margin="5">
                 <TextBlock Text="Saved songs" HorizontalAlignment="Center"/>
-                <ListBox MaxHeight="130" VerticalAlignment="Top" x:Name="SongListBox" ItemsSource="{Binding SongList}" DisplayMemberPath="Name" SelectedValuePath="Name" SelectionChanged="SongListBox_SelectionChanged" >
+                <ListBox MaxHeight="100" VerticalAlignment="Top" x:Name="SongListBox" ItemsSource="{Binding SongList}" DisplayMemberPath="Name" SelectedValuePath="Name" SelectionChanged="SongListBox_SelectionChanged" >
                     <!--<i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectionChanged">
                             <i:InvokeCommandAction Command="{Binding SelectedItemChangedCommand}"  CommandParameter="{Binding ElementName=SongListBox, Path=SelectedItem}"/>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>-->
                 </ListBox>
-                <Button Content="Remove" HorizontalAlignment="Center" Click="Button_Click_RemoveSong"/>
+                <Button MinHeight="20" Margin="5" Content="Remove" HorizontalAlignment="Center" Click="Button_Click_RemoveSong"/>
             </StackPanel>
             <!--<Border.Style>
                 <Style BasedOn="{StaticResource SidePanelBorder}"/>
