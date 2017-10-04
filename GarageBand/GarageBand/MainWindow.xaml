@@ -37,7 +37,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="150"/>
         </Grid.ColumnDefinitions>
-        <Border  BorderBrush="#56a43f" BorderThickness="2" Margin="0,5" CornerRadius="8,8,8,8" MinWidth="200">
+        <Border BorderBrush="#56a43f" BorderThickness="2" Margin="0,5" CornerRadius="8,8,8,8" MinWidth="200">
             <StackPanel Orientation="Vertical"  MinWidth="100">
                 <Grid>
                     <Grid.ColumnDefinitions>
