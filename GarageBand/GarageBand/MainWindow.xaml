@@ -43,10 +43,18 @@
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"></ColumnDefinition>
-                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                        <ColumnDefinition Width="1.7*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Margin="5" Text="{Binding BPMText}"/>
-                    <Slider Grid.Column="1" Margin="5"  x:Name="BPMSlider" Minimum="60" Maximum="200" Value="{Binding SliderValue}"/>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Margin="5" Text="{Binding BPMText}"/>
+                    <Slider Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="5" Minimum="60" Maximum="200" Value="{Binding SliderValue}"/>
+
+                    <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="5" Text="{Binding VolumeText}"></TextBlock>
+                    <Slider Grid.Row="1" Grid.Column="2" Margin="5" Minimum="0" Maximum="100" Value="{Binding VolumeSlider}"></Slider>
                 </Grid>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Song name:" Margin="5"/>

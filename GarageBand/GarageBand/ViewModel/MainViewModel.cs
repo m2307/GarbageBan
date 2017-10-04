@@ -201,6 +201,32 @@ namespace GarageBand.ViewModel
             }
         }
 
+        private string _volumeText = "Volume: 100";
+
+        public string VolumeText
+        {
+            get { return _volumeText; }
+            set
+            {
+                _volumeText = value;
+                RaisePropertyChanged("VolumeText");
+            }
+        }
+
+        private int _volumeSlider = 100;
+        
+        public int VolumeSlider
+        {
+            get { return _volumeSlider; }
+            set
+            {
+                RaisePropertyChanged("VolumeSlider");
+                _volumeSlider = value;
+                VolumeText = "Volume: " + value;
+                soundPlayer.Volume = value / 100.0f;
+            }
+        }
+
         private Player _player = new Player()
         {
             Name = "Default",
