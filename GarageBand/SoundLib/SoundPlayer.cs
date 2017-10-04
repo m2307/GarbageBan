@@ -26,9 +26,9 @@ namespace SoundLib
 
         private static bool isDisposed = false;
 
-        private static string SubTypeHiHat = "1";
-        private static string SubTypeKick = "1";
-        private static string SubTypeSnare = "1";
+        private static volatile string SubTypeHiHat = "1";
+        private static volatile string SubTypeKick = "1";
+        private static volatile string SubTypeSnare = "1";
 
         public SoundPlayer()
         {
@@ -40,7 +40,7 @@ namespace SoundLib
             tSnare.Start();
         }
 
-        public void PlaySound(InstrumentType sound, string SoundType)
+        public void PlaySound(InstrumentType sound, string SoundType) //calling this method to fast will cause a note not to play
         {
             switch (sound)
             {
