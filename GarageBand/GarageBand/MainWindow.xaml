@@ -38,11 +38,15 @@
             <ColumnDefinition Width="150"/>
         </Grid.ColumnDefinitions>
         <Border  BorderBrush="#56a43f" BorderThickness="2" Margin="0,5" CornerRadius="8,8,8,8" MinWidth="200">
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" MinWidth="100">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Margin="5" Text="{Binding BPMText}"/>
-                    <Slider Margin="5" MinWidth="100" x:Name="BPMSlider" Minimum="60" Maximum="200" Value="{Binding SliderValue}"/>
-                </StackPanel>
+            <StackPanel Orientation="Vertical"  MinWidth="100">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Margin="5" Text="{Binding BPMText}"/>
+                    <Slider Grid.Column="1" Margin="5"  x:Name="BPMSlider" Minimum="60" Maximum="200" Value="{Binding SliderValue}"/>
+                </Grid>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Song name:" Margin="5"/>
                     <TextBox Text="{Binding Player.Name}" Margin="5"/>
