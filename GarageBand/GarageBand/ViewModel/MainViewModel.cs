@@ -14,7 +14,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Xml.Linq;
 
 namespace GarageBand.ViewModel
@@ -32,6 +34,8 @@ namespace GarageBand.ViewModel
         public ICommand DeleteCommand { get; set; }
         public ICommand ClearCommand { get; set; }
         public ICommand SelectedItemChangedCommand { get; set; }
+
+        public Action<int, Color> changeTextColor;
 
         private SoundPlayer soundPlayer = new SoundPlayer();
         private ObservableCollection<Player> _songList = new ObservableCollection<Player>();
@@ -57,7 +61,7 @@ namespace GarageBand.ViewModel
         public MainViewModel()
         {
             Application.Current.MainWindow.Closing += new CancelEventHandler(OnClose);
-
+            
             SaveCommand = new RelayCommand(Save);
             DeleteCommand = new RelayCommand<object>(Delete);
             SelectedItemChangedCommand = new RelayCommand<object>(Load);
@@ -108,11 +112,22 @@ namespace GarageBand.ViewModel
         /// <param name="e"></param>
         public void PlayerPlaySound(object source, ElapsedEventArgs e)
         {
+            if (changeTextColor != null)
+            {
+                changeTextColor(Player.Position, Color.FromRgb(255,255,255));
+            }
+            //beatColumns[Player.Position].Foreground = new SolidColorBrush(Colors.Black);
+            
             Player.IncrementPosition();
             Debug.WriteLine("---------------");
             Debug.WriteLine($"PLAYSOUND {Player.Position}");
 
-            var toPlay = Player.PlayInstruments.Where(x => x.Position == Player.Position);
+            var toPlay = Player.PlayInstruments.Where(x => x.Position == Player.Position + 1);
+
+            if (changeTextColor != null)
+            {
+                changeTextColor(Player.Position, Color.FromRgb(255, 0, 0));
+            }
 
             foreach (var item in toPlay)
             {
