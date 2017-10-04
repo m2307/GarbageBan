@@ -26,9 +26,11 @@ namespace SoundLib
 
         private static bool isDisposed = false;
 
-        private static string SubTypeHiHat = "1";
-        private static string SubTypeKick = "1";
-        private static string SubTypeSnare = "1";
+        private static volatile string SubTypeHiHat = "1";
+        private static volatile string SubTypeKick = "1";
+        private static volatile string SubTypeSnare = "1";
+
+        private static volatile float volume = 1.0f;
 
         public SoundPlayer()
         {
@@ -38,9 +40,11 @@ namespace SoundLib
             tHihat.Start();
             tKick.Start();
             tSnare.Start();
+
+            Volume = 1.0f; //bug causes sound to randomly play on program start //muted
         }
 
-        public void PlaySound(InstrumentType sound, string SoundType)
+        public void PlaySound(InstrumentType sound, string SoundType) //calling this method to fast will cause a note not to play
         {
             switch (sound)
             {
@@ -69,7 +73,7 @@ namespace SoundLib
             {
                 MediaPlayer m = new MediaPlayer();
                 m.Open(new Uri(Dir + HiHat + i + Extension, UriKind.Relative));
-                m.Volume = 1;
+                m.Volume = 0;
 
                 HiHats.Add(i.ToString(), m);
             }
@@ -83,6 +87,7 @@ namespace SoundLib
                 }
                 if (HiHats.TryGetValue(SubTypeHiHat, out MediaPlayer m))
                 {
+                    checkVolume(m);
                     m.Play();
                     m.Position = new TimeSpan(0);
                 }
@@ -98,7 +103,7 @@ namespace SoundLib
             {
                 MediaPlayer m = new MediaPlayer();
                 m.Open(new Uri(Dir + Snare + i + Extension, UriKind.Relative));
-                m.Volume = 1;
+                m.Volume = 0;
 
                 snares.Add(i.ToString(), m);
             }
@@ -112,6 +117,7 @@ namespace SoundLib
                 }
                 if (snares.TryGetValue(SubTypeSnare, out MediaPlayer m))
                 {
+                    checkVolume(m);
                     m.Play();
                     m.Position = new TimeSpan(0);
                 }
@@ -126,7 +132,7 @@ namespace SoundLib
             {
                 MediaPlayer m = new MediaPlayer();
                 m.Open(new Uri(Dir + Kick + i + Extension, UriKind.Relative));
-                m.Volume = 1;
+                m.Volume = 0;
 
                 kicks.Add(i.ToString(), m);
             }
@@ -140,6 +146,7 @@ namespace SoundLib
                 }
                 if (kicks.TryGetValue(SubTypeSnare, out MediaPlayer m))
                 {
+                    checkVolume(m);
                     m.Play();
                     m.Position = new TimeSpan(0);
                 }
@@ -158,6 +165,34 @@ namespace SoundLib
             tSnare.Wait();
             tKick.Wait();
             tHihat.Wait();
+        }
+
+        public float Volume
+        {
+            get { return volume; }
+            set
+            {
+                if (value > 1.0f)
+                {
+                    volume = 1.0f;
+                }
+                else if (value < 0f)
+                {
+                    volume = 0f;
+                }
+                else
+                {
+                    volume = value;
+                }
+            }
+        }
+
+        private void checkVolume(MediaPlayer m)
+        {
+            if (m.Volume != Volume)
+            {
+                m.Volume = volume;
+            }
         }
     }
 }
