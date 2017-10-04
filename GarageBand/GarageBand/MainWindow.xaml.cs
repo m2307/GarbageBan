@@ -179,12 +179,13 @@ namespace GarageBand
             }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_Click_Clear(object sender, RoutedEventArgs e)
         {
+            (DataContext as MainViewModel).ClearPlayerBeats();
             Beatgrid_Generate();
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Button_Click_RemoveSong(object sender, RoutedEventArgs e)
         {
             (DataContext as MainViewModel).Remove(SongListBox.SelectedItem);
             Beatgrid_Generate();

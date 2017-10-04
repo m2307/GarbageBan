@@ -1,8 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <songs>
-  <player name="Song 2" bpm="120" positions="8">
-    <sound position="7" type="Basskick" soundtype="1" />
-  </player>
   <player name="Song 1" bpm="200" positions="8">
     <sound position="7" type="Basskick" soundtype="1" />
     <sound position="5" type="Hihat" soundtype="1" />
@@ -13,5 +10,18 @@
     <sound position="6" type="Basskick" soundtype="1" />
     <sound position="5" type="Snaar" soundtype="1" />
     <sound position="7" type="Snaar" soundtype="2" />
+  </player>
+  <player name="Song 7" bpm="120" positions="8">
+    <sound position="7" type="Basskick" soundtype="1" />
+  </player>
+  <player name="Song 8" bpm="120" positions="8">
+    <sound position="7" type="Basskick" soundtype="1" />
+  </player>
+  <player name="Song 9" bpm="120" positions="8">
+    <sound position="7" type="Basskick" soundtype="1" />
+  </player>
+  <player name="Song 1000" bpm="120" positions="8">
+    <sound position="7" type="Basskick" soundtype="1" />
+    <sound position="6" type="Snaar" soundtype="1" />
   </player>
 </songs>
