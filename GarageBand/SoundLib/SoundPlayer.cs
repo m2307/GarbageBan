@@ -40,6 +40,8 @@ namespace SoundLib
             tHihat.Start();
             tKick.Start();
             tSnare.Start();
+
+            Volume = 1.0f; //bug causes sound to randomly play on program start //muted
         }
 
         public void PlaySound(InstrumentType sound, string SoundType) //calling this method to fast will cause a note not to play
@@ -71,7 +73,7 @@ namespace SoundLib
             {
                 MediaPlayer m = new MediaPlayer();
                 m.Open(new Uri(Dir + HiHat + i + Extension, UriKind.Relative));
-                m.Volume = 1;
+                m.Volume = 0;
 
                 HiHats.Add(i.ToString(), m);
             }
@@ -101,7 +103,7 @@ namespace SoundLib
             {
                 MediaPlayer m = new MediaPlayer();
                 m.Open(new Uri(Dir + Snare + i + Extension, UriKind.Relative));
-                m.Volume = 1;
+                m.Volume = 0;
 
                 snares.Add(i.ToString(), m);
             }
@@ -130,7 +132,7 @@ namespace SoundLib
             {
                 MediaPlayer m = new MediaPlayer();
                 m.Open(new Uri(Dir + Kick + i + Extension, UriKind.Relative));
-                m.Volume = 1;
+                m.Volume = 0;
 
                 kicks.Add(i.ToString(), m);
             }
