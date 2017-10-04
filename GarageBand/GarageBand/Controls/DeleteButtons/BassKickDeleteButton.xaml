@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="100">
     <Button x:Name="mainButton" VerticalAlignment="Center" HorizontalAlignment="Center">
-        <Grid AllowDrop="False" Margin="5">
+        <Grid AllowDrop="False">
             <Grid.Resources>
                 <ResourceDictionary>
                     <ResourceDictionary.MergedDictionaries>
