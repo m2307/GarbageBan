@@ -9,6 +9,7 @@ using GarageBand.Controls;
 using System.Windows.Data;
 using System.Collections.Generic;
 using GarageBand.Model;
+using System.ComponentModel;
 
 namespace GarageBand
 {
@@ -25,9 +26,15 @@ namespace GarageBand
             InitializeComponent();
             Closing += (s, e) => ViewModelLocator.Cleanup();
 
-            #region Beatgrid gen
             Beatgrid_Generate();
-            #endregion
+
+            SongListBox.Items.SortDescriptions.Add(new SortDescription("Name", ListSortDirection.Ascending));
+
+            //Create delete buttons
+            foreach (PlayInstrument beat in (DataContext as MainViewModel).Player.PlayInstruments)
+            {
+                CreateDeleteButton(beat);
+            }
         }
 
         private void Beatgrid_Generate()
@@ -119,7 +126,7 @@ namespace GarageBand
             Button b = new Button();
             b.Command = (DataContext as MainViewModel).DeleteCommand;
             b.CommandParameter = playInstrument;
-            b.Content = "Delete";
+            b.Content = "Delete\nSample " + playInstrument.SoundType;
             b.VerticalContentAlignment = VerticalAlignment.Center;
             b.HorizontalContentAlignment = HorizontalAlignment.Center;
             Grid.SetColumn(b, playInstrument.Position - 1);
@@ -170,6 +177,17 @@ namespace GarageBand
                     CreateDeleteButton(beat);
                 }
             }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Beatgrid_Generate();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            (DataContext as MainViewModel).Remove(SongListBox.SelectedItem);
+            Beatgrid_Generate();
         }
     }
 }

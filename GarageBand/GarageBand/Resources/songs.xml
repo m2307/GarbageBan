@@ -3,15 +3,15 @@
   <player name="Song 2" bpm="120" positions="8">
     <sound position="7" type="Basskick" soundtype="1" />
   </player>
-  <player name="Defaulttt" bpm="120" positions="8" />
-  <player name="Defaultt" bpm="120" positions="8">
-    <sound position="6" type="Basskick" soundtype="1" />
-    <sound position="5" type="Snaar" soundtype="1" />
-  </player>
-  <player name="Default" bpm="120" positions="8" />
   <player name="Song 1" bpm="200" positions="8">
     <sound position="7" type="Basskick" soundtype="1" />
     <sound position="5" type="Hihat" soundtype="1" />
     <sound position="5" type="Basskick" soundtype="1" />
+  </player>
+  <player name="Default" bpm="120" positions="8">
+    <sound position="7" type="Hihat" soundtype="1" />
+    <sound position="6" type="Basskick" soundtype="1" />
+    <sound position="5" type="Snaar" soundtype="1" />
+    <sound position="7" type="Snaar" soundtype="2" />
   </player>
 </songs>

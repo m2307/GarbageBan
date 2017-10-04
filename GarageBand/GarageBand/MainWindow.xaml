@@ -6,6 +6,7 @@
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:ignore="http://www.galasoft.ch/ignore"
         xmlns:controls="clr-namespace:GarageBand.Controls"
+        xmlns:player="clr-namespace:GarageBand.Model"
         mc:Ignorable="d ignore"
         Height="400"
         Width="900"
@@ -20,7 +21,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-
+    
     <Grid Margin="20" AllowDrop="True" x:Name="LayoutRoot">
         <Grid.Resources >
             <Style TargetType="Border" >
@@ -49,20 +50,21 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" MinHeight="20">
                     <Button Content="Save" Width="50" HorizontalAlignment="Left" VerticalAlignment="Center" Command="{Binding SaveCommand}" Margin="5"/>
-                    <Button Content="Clear" Width="50" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"/>
+                    <Button Content="Clear" Width="50" HorizontalAlignment="Right" VerticalAlignment="Center" Click="Button_Click_1"  Command="{Binding ClearCommand}" Margin="5"/>
                 </StackPanel>
             </StackPanel>
         </Border>
         <Border VerticalAlignment="Top" Grid.Row="1" BorderBrush="#56a43f" BorderThickness="2" MinWidth="150" MaxHeight="180" CornerRadius="8,8,8,8">
             <StackPanel Orientation="Vertical" Margin="5">
                 <TextBlock Text="Saved songs" HorizontalAlignment="Center"/>
-                <ListBox MaxHeight="150" VerticalAlignment="Top" x:Name="SongListBox" ItemsSource="{Binding SongList}" DisplayMemberPath="Name" SelectionChanged="SongListBox_SelectionChanged" >
+                <ListBox MaxHeight="150" VerticalAlignment="Top" x:Name="SongListBox" ItemsSource="{Binding SongList}" DisplayMemberPath="Name" SelectedValuePath="Name" SelectionChanged="SongListBox_SelectionChanged" >
                     <!--<i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectionChanged">
                             <i:InvokeCommandAction Command="{Binding SelectedItemChangedCommand}"  CommandParameter="{Binding ElementName=SongListBox, Path=SelectedItem}"/>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>-->
                 </ListBox>
+                <Button Content="Remove" HorizontalAlignment="Center" Click="Button_Click_2"/>
             </StackPanel>
             <!--<Border.Style>
                 <Style BasedOn="{StaticResource SidePanelBorder}"/>
