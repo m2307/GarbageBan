@@ -18,6 +18,8 @@ namespace GarageBand
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<TextBlock> beatColumns = new List<TextBlock>();
+
         /// <summary>
         /// Initializes a new instance of the MainWindow class.
         /// </summary>
@@ -25,7 +27,9 @@ namespace GarageBand
         {
             InitializeComponent();
             Closing += (s, e) => ViewModelLocator.Cleanup();
+            (DataContext as MainViewModel).changeTextColor += OnColorChange;
 
+            beatColumns.Clear();
             Beatgrid_Generate();
 
             SongListBox.Items.SortDescriptions.Add(new SortDescription("Name", ListSortDirection.Ascending));
@@ -35,6 +39,14 @@ namespace GarageBand
             {
                 CreateDeleteButton(beat);
             }
+        }
+
+        private void OnColorChange(int position, Color color)
+        {
+            Dispatcher.BeginInvoke((Action)(() =>
+            {
+                beatColumns[position].Background = new SolidColorBrush(color);
+            }));
         }
 
         private void Beatgrid_Generate()
@@ -80,6 +92,8 @@ namespace GarageBand
                 Grid.SetRow(t, 0);
                 Grid.SetColumn(t, i);
                 beatGrid.Children.Add(t);
+
+                beatColumns.Add(t);
 
                 for (int j = 0; j < Enum.GetNames(typeof(InstrumentType)).Length; j++)
                 {

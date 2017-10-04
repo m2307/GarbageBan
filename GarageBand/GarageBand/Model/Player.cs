@@ -27,12 +27,13 @@ namespace GarageBand.Model
 
         public void IncrementPosition()
         {
+            Position++;
+
             if (Position >= MaxPosition)
             {
                 Position = 0;
             }
 
-            Position++;
             RaisePropertyChanged("Position");
         }
 
