@@ -11,7 +11,7 @@
         Height="400"
         Width="900"
         Title="Opleiding GarageBand"
-        DataContext="{Binding MainViewModel, Source={StaticResource Locator}}" MinWidth="300" MinHeight="600">
+        DataContext="{Binding MainViewModel, Source={StaticResource Locator}}" MinWidth="870" MinHeight="360">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -22,7 +22,7 @@
         </ResourceDictionary>
     </Window.Resources>
     
-    <Grid Margin="20" AllowDrop="True" x:Name="LayoutRoot">
+    <Grid Margin="20 20 20 0" AllowDrop="True" x:Name="LayoutRoot">
         <Grid.Resources >
             <Style TargetType="Border" >
                 <Setter Property="Padding" Value="5,5,5,5" />
@@ -31,7 +31,6 @@
         <Grid.RowDefinitions>
             <RowDefinition MinHeight="100" Height="Auto"/>
             <RowDefinition Height="*"/>
-            <RowDefinition MinHeight="100" Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
@@ -82,7 +81,7 @@
                 <Style BasedOn="{StaticResource SidePanelBorder}"/>
             </Border.Style>-->
         </Border>
-        <Grid Margin="20" Grid.Column="1" MinHeight="300" Grid.RowSpan="2" x:Name="beatGrid"  Drop="LayoutRoot_Drop" DragEnter="LayoutRoot_DragEnter" />
+        <Grid Margin="20 20 20 5" Grid.Column="1" MinHeight="300" Grid.RowSpan="2" x:Name="beatGrid"  Drop="LayoutRoot_Drop" DragEnter="LayoutRoot_DragEnter" />
         <StackPanel Orientation="Vertical" Grid.Column="2" Grid.RowSpan="2">
             <controls:HiHatButton/>
             <controls:BassKickButton/>
