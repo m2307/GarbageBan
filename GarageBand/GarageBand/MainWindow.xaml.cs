@@ -82,13 +82,14 @@ namespace GarageBand
 
                 //Labels Beat
                 TextBlock t = new TextBlock();
-                //t.Width = 30;
                 t.MinWidth = 30;
                 t.Text = (i + 1).ToString();
                 t.VerticalAlignment = VerticalAlignment.Center;
                 t.HorizontalAlignment = HorizontalAlignment.Center;
                 t.FontSize = 16;
                 t.VerticalAlignment = VerticalAlignment.Top;
+                t.TextAlignment = TextAlignment.Center;
+                t.Padding = new Thickness(5, 3, 5, 3);
                 Grid.SetRow(t, 0);
                 Grid.SetColumn(t, i);
                 beatGrid.Children.Add(t);

@@ -126,7 +126,7 @@ namespace GarageBand.ViewModel
 
             if (changeTextColor != null)
             {
-                changeTextColor(Player.Position, Color.FromRgb(255, 0, 0));
+                changeTextColor(Player.Position, Color.FromRgb(0, 255, 0));
             }
 
             foreach (var item in toPlay)
